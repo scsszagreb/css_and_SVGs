@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>svg & a11y</title>
+    <style>
+        div {
+            max-width: 50%;
+            margin: 0 auto;
+        }
+
+        a {
+            width: 100%;
+            display: block;
+            position: relative;
+            height: 0;
+            padding-bottom: calc(100% * 90 / 74);
+        }
+
+        a:focus {
+            outline: 1px dotted black;
+        }
+
+        .lightbulb {
+            transition: fill 0.3s ease;
+        }
+
+        .rays {
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        a:focus .rays,
+        a:hover .rays {
+            opacity: 1;
+        }
+
+        a:focus .lightbulb,
+        a:hover .lightbulb {
+            fill: #000;
+        }
+
+        a svg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <a href="##">
+            <svg width="74" height="90" viewbox="0 0 74 90" xmlns="http://www.w3.org/2000/svg"
+                aria-labelledby="title desc" focusable="false" role="img">
+                <title id="title">Lightbulb</title>
+                <desc id="desc">This thing lights when tured on</desc>
+                <g fill-rule="nonzero" fill="none">
+                    <path
+                        d="M44.399 70.106v-2.821c0-5.504 2.237-10.793 6.15-14.52 4-3.812 6.196-8.94 6.196-14.462 0-11.014-8.964-19.978-19.978-19.978-.756 0-1.523.042-2.276.126-9.528 1.053-17.137 9.11-17.67 18.715a19.998 19.998 0 0 0 6.036 15.472c3.99 3.87 6.278 9.201 6.278 14.644v2.822a3.444 3.444 0 0 0 3.438 3.44h8.386a3.442 3.442 0 0 0 3.44-3.438z"
+                        stroke="#000" stroke-width="4" fill="transparent" class="lightbulb" />
+                    <path
+                        d="M43.276 77.521H30.258a1.5 1.5 0 0 0 0 3h13.019a1.5 1.5 0 0 0-.001-3zM44.776 83.761a1.5 1.5 0 0 0-1.5-1.5H30.258a1.5 1.5 0 0 0 0 3h13.019a1.5 1.5 0 0 0 1.499-1.5z"
+                        fill="#000" />
+                    <g fill="#000" class="rays">
+                        <path
+                            d="M1.5 38.267h8.643a1.5 1.5 0 1 0 0-3H1.5a1.5 1.5 0 0 0 0 3zM73.534 36.767a1.5 1.5 0 0 0-1.5-1.5h-8.643a1.5 1.5 0 1 0 0 3h8.643a1.5 1.5 0 0 0 1.5-1.5zM35.267 1.5v8.643a1.5 1.5 0 1 0 3 0V1.5a1.5 1.5 0 0 0-3 0zM60.644 10.769l-6.111 6.111a1.5 1.5 0 1 0 2.122 2.121l6.111-6.111a1.5 1.5 0 1 0-2.122-2.121zM19.001 54.533a1.5 1.5 0 0 0-2.121 0l-6.111 6.111a1.5 1.5 0 1 0 2.122 2.121l6.111-6.111a1.5 1.5 0 0 0-.001-2.121zM16.88 19.001a1.5 1.5 0 0 0 2.122-2.121l-6.111-6.111a1.5 1.5 0 1 0-2.121 2.121l6.11 6.111zM60.644 62.765a1.5 1.5 0 0 0 2.122-2.121l-6.111-6.111a1.5 1.5 0 1 0-2.121 2.121l6.11 6.111z" />
+                    </g>
+                    <path d="M41.521 88.5a1.5 1.5 0 0 0-1.5-1.5h-6.509a1.5 1.5 0 0 0 0 3h6.509a1.5 1.5 0 0 0 1.5-1.5z"
+                        fill="#000" />
+                </g>
+            </svg>
+        </a>
+
+    </div>
+</body>
+
+</html>
